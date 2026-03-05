@@ -141,10 +141,6 @@ lint: tools
 		-not -path './.local/*' \
 	| while IFS= read -r file; do shellcheck "$${file}"; done
 
-.PHONY: docs
-docs: install
-	@echo "Generating Docs..."
-
 .PHONY: test
 test: $(BIN)/go
 	@echo "Testing..."
