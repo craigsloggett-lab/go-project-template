@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Lint YAML Files
-        uses: craigsloggett/lint-yaml@4253057016aace3961ea5d60c2f74f15afeaa31c # v1.0.0
+        uses: craigsloggett/lint-yaml@063f5f3f5d71485ed0463ae2545e8a98334c6f94 # v1.0.6
 
   golangci-lint:
     name: Go
