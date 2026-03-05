@@ -116,7 +116,7 @@ update: $(BIN)/go
 .PHONY: build
 build: $(BIN)/go
 	@echo "Building..."
-	@go build ./...
+	@go build -o ./bin/ ./...
 
 .PHONY: install
 install: build
