@@ -1,9 +1,17 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Test
     branches:
       - main
+    types:
+      - completed
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -14,13 +22,14 @@ jobs:
   release:
     name: GitHub
     # Prevent an initial run on repository creation using this template.
-    # Remove this guard line in repositories created from this template.
-    if: github.repository == 'craigsloggett-lab/go-project-template'
+    # Update the repository check in repositories created from this template.
+    if: >-
+      github.event.workflow_run.conclusion == 'success' && github.repository == 'craigsloggett-lab/go-project-template'
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
 
     outputs:
       new-release-published: ${{ steps.release.outputs.new-release-published }}
-      new-release-version: ${{ steps.release.outputs.new-release-version }}
 
     steps:
       - name: Checkout
