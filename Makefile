@@ -21,7 +21,8 @@ lint:
 	yamllint .
 	golangci-lint run
 	go mod tidy
-	git diff --exit-code go.mod go.sum
+	git diff --exit-code go.mod
+	if [ -f go.sum ]; then git diff --exit-code go.sum; fi
 	govulncheck ./...
 
 test:

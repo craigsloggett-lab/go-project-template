@@ -68,7 +68,8 @@ jobs:
       - name: Check go.mod and go.sum
         run: |
           go mod tidy
-          git diff --exit-code go.mod go.sum
+          git diff --exit-code go.mod
+          if [ -f go.sum ]; then git diff --exit-code go.sum; fi
 
   govulncheck:
     name: Vulnerability Check
