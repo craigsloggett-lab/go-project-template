@@ -22,9 +22,9 @@ jobs:
   release:
     name: GitHub
     # Prevent an initial run on repository creation using this template.
-    # Update the repository check in repositories created from this template.
+    # Update the repository name in repositories created from this template.
     if: >-
-      github.event.workflow_run.conclusion == 'success' && github.repository == 'craigsloggett-lab/go-project-template'
+      github.event.workflow_run.conclusion == 'success' && github.repository == 'UPDATE_ME'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
 

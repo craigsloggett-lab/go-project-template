@@ -1,4 +1,4 @@
-APP_NAME  := app
+APP_NAME  := app # Update this to match the directory name under cmd/.
 BUILD_DIR := .local/builds
 PLATFORMS := linux/amd64 linux/arm64 darwin/amd64 darwin/arm64
 
@@ -21,6 +21,7 @@ lint:
 	yamllint .
 	golangci-lint run
 	go mod tidy
+	# Replace with "git diff --exit-code go.mod go.sum" after adding dependencies.
 	git diff --exit-code go.mod
 	if [ -f go.sum ]; then git diff --exit-code go.sum; fi
 	govulncheck ./...

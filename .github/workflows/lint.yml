@@ -66,6 +66,7 @@ jobs:
           cache: true
 
       - name: Check go.mod and go.sum
+        # Replace with "git diff --exit-code go.mod go.sum" after adding dependencies.
         run: |
           go mod tidy
           git diff --exit-code go.mod
