@@ -1,8 +1,8 @@
 APP_NAME              := app # Update this to match the directory name under cmd/.
 BUILD_DIR             := .local/builds
 PLATFORMS             := linux/amd64 linux/arm64 darwin/amd64 darwin/arm64
-GOLANGCI_LINT_VERSION := v2.11.4
-GOVULNCHECK_VERSION   := v1.1.4
+GOLANGCI_LINT_VERSION := v2.12.2
+GOVULNCHECK_VERSION   := v1.3.0
 
 .PHONY: all build clean format lint test update
 
