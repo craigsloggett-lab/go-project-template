@@ -1,7 +1,7 @@
 name: Pre-release
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
@@ -15,8 +15,5 @@ jobs:
     name: Semantic Title
     runs-on: ubuntu-24.04
     steps:
-      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # 6.1.1
-        with:
-          requireScope: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint Pull Request Title
+        uses: craigsloggett/lint-pull-request-title@d21a57f48558d718c8591d3c86249b70797eb350 # v1.0.0
